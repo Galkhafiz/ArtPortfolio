@@ -1,0 +1,371 @@
+/* GENERAL */
+body, 
+html {
+    margin: 0px;
+    padding: 0px; 
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;  
+    height: 100vh; 
+    scroll-behavior: smooth; 
+}
+
+.container_wrapper {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    grid-gap: 1em;
+}
+
+#navbar {
+    display: grid;
+    grid-template-rows: repeat(5, 1fr); 
+    font-size: 18px;
+    line-height: 10px;
+    justify-content: start;
+}
+
+.nav-link a,
+.social_icons {
+    text-decoration: none;  
+    padding: 20px;
+    color: inherit;
+    cursor: pointer;
+}
+
+a:hover {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#fortheicons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.social_icons {
+    width: 20px;
+    height: 20px;
+    display: grid;
+}
+
+#main_h1,
+.about_h1,
+.art_h1,
+.contact_h1 {
+    letter-spacing: 6px;
+    font-size: 20px;
+    padding: 10px;
+    margin-left: 10px;
+    text-align: center;
+    cursor: pointer; 
+}
+
+#mini-gallery {
+    display: grid; 
+    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); 
+    grid-gap: 10px;  
+}
+
+.picture_show {
+    max-width: 100%;
+    display: block;
+    height: auto;
+}
+
+
+.zooming {
+    width: 1500px; 
+    height: auto; 
+    transition-duration: 1s;
+    transition-timing-function: ease;
+}
+
+.zooming:hover {
+    transform: scale(1.2);
+}
+
+
+/* MODAL  */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1; 
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.9); 
+  }
+  
+  .modal-controller {
+    display: grid;
+    grid-template-columns: 70% 30%;  
+    background-color: #F5F5F5 ;
+    margin-left: 200px;
+    margin-right: 200px;
+  }
+
+  /* Modal Content (image) */
+  .modal-content {
+    margin: auto;
+    display: block;
+    width: 60%;
+    max-width: 700px;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  
+  #text-for-modal {
+    display: grid;
+    grid-template-rows: repeat(3, 60px);
+    place-items: center;
+    padding-top: 180px;
+    grid-row-gap: 10px; 
+    font-weight: bold;
+    background-color: #FFFAFA	;
+
+  }
+
+/* Caption of Modal Image */
+  #caption,
+  #size,
+  #price {
+    margin: auto;
+    display: block;
+    width: 50%;
+    max-width: 700px;
+    text-align: center;
+    color: black;
+    padding: 10px 0;
+    height: 150px;
+  }
+
+  /* Add Animation */
+.modal-content, #caption {  
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+  }
+  
+  @-webkit-keyframes zoom {
+    from {-webkit-transform:scale(0)} 
+    to {-webkit-transform:scale(1)}
+  }
+  
+  @keyframes zoom {
+    from {transform:scale(0)} 
+    to {transform:scale(1)}
+  }
+  
+/* CLOSE BUTTON */
+.close {
+    top: 15px;
+    right: 35px;
+    font-size: 40px;
+}
+
+.close,
+.zoomin,
+.zoomout,
+.left,
+.right,
+.info {
+  position: absolute;
+  color: #f1f1f1;
+  font-weight: bold;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.zoomin {
+    top: 23px;
+    right: 70px;
+    font-size: 28px;
+}
+
+.zoomout {
+  top: 23px;
+  right: 105px;
+  font-size: 28px;
+}
+  
+.info {
+  top: 23px;
+  right: 143px;
+  font-size: 26px;
+}
+
+  .close:hover,
+  .close:focus
+  .zoomin:hover,
+  .zoomin:focus,
+  .zoomout:hover,
+  .zoomout:focus,
+  .left:hover,
+  .left:focus,
+  .right:hover,
+  .right:focus,
+  .info:hover,
+  .info:focus  {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+.left,
+.right {
+  position: absolute;
+  top: 340px;
+  font-size: 50px;
+} 
+
+.left {
+  left: 80px;
+}
+
+.right {
+  right: 80px;
+} 
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+    .modal-content {
+      width: 100%;
+    }
+
+
+#text-for-modal {
+  font-size: 9px;
+}
+
+}
+
+
+@media only screen and (max-width: 600px) {
+    header {
+        font-size: 8px;
+        letter-spacing: 1px;
+    }
+
+    .nav-link a,
+    .social_icons {
+        font-size: 15px;
+}
+
+#text-for-modal {
+   font-size: 5px;
+}
+
+#caption,
+#size,
+#price {
+  width: 20%;
+  max-width: 700px;
+  text-align: center;
+  font-size: 5px;
+}
+
+
+#contact_image {
+  min-width: 60%;
+  height: auto;
+}
+
+
+ul li {
+  font-size: 5px;
+  grid-row-gap: 2px;
+  color: #fff;
+}
+
+}
+
+
+/* ABOUT */
+.about_artist {
+  display: grid; 
+  grid-template-columns: 40% 60%;
+  font-family: 'Montserrat', sans-serif;  
+}
+
+#about {
+  letter-spacing: 5px;
+  font-size: 30px;
+}
+
+p {
+  letter-spacing: 1px;
+  width: 500px;
+  line-height: 1.8em;
+}
+
+/* CONTACT */
+.contact_artist {
+  display: grid;
+  grid-template-columns: 30% 70%;
+  font-family: 'Montserrat', sans-serif;  
+}
+
+.contact_div {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+#contact_image {
+  min-width: 80%;
+  height: 500px;
+}
+
+ul {
+  list-style-type: none;
+  display: grid;
+}
+
+ul li {
+  font-size: 15px;
+  grid-row-gap: 2px;
+}
+
+#details {
+  display: grid;
+  padding-right: 100px;
+}
+
+#contact {
+  letter-spacing: 5px;
+  font-size: 20px;
+}
+
+
+/* ART */
+.art_artist {
+  display: grid; 
+  grid-template-columns: 40% 60%;
+  font-family: 'Montserrat', sans-serif;  
+  margin-bottom: 5px;
+}
+
+.art_div {
+  display: grid;
+  margin-top: 150px;
+  grid-row-gap: 20px;
+}
+
+
+/* FOOTER */
+.footer,
+.footer-about,
+.footer-contact,
+.footer-art {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 11px;
+}
